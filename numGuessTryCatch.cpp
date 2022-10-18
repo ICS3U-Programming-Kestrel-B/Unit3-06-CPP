@@ -7,14 +7,15 @@
 // if your guess is correct
 
 #include <time.h>
-
+#include <string>
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
 #include <random>
 
-int main() {
+main() {
     // Declaring variables
+    std::string userGuessString;
     int userGuess, correctGuess;
 
     // initializing random seed
@@ -34,29 +35,28 @@ int main() {
     std::cout << "you if your guess is correct\n";
     std::cout << "\n";
     std::cout << "Enter a number between 1 and 9: ";
-    std::cin >> userGuess;
+    std::cin >> userGuessString;
 
     // Process
     // Checking that userNum is an integer
     try {
-        userGuess = std::stoi(userGuess);
+        userGuess = std::stoi(userGuessString);
     } catch (std::invalid_argument) {
         std::cout << "Please enter a valid number.";
-        std::cout << userGuess << ".\endl";
-        std::cout << " is not valid.";
+        std::cout << userGuess << " ";
+        std::cout << " is not valid.\n";
     }
 
     // Checking that userNum is in the right range
     if (userGuess > 9) {
-        std::cout << "Please enter a valid number.";
-        std::cout << userGuess << ".\endl";
-        std::cout << " is not valid.";
+        std::cout << "Please enter a valid number. ";
+        std::cout << userGuess << " is not valid.";
     } else if (userGuess < 0) {
         std::cout << "Please enter a valid number. ";
-        std::cout << userGuess << ".\endl";
-        std::cout << " is not valid."
+        std::cout << userGuess;
+        std::cout << " is not valid.";
     } else {
-        std::cout << " "
+        std::cout << "Your input is valid.";
     }
 
     // Checking to see if userGuess is correct
